@@ -33,7 +33,6 @@ namespace Tik
                     new ColumnDefinition{Width=new GridLength(1,GridUnitType.Star)}
                 }
             };
-            //Uss_mang();
             uus_btn = new Button
             {
                 Text = "Uss Mang"
@@ -58,7 +57,7 @@ namespace Tik
         private async void Kes_btn_Clicked(object sender, EventArgs e)
         {
             string e_valik = await DisplayPromptAsync("Kes on esimene", "Tee oma valik 1-cross,2-round", initialValue: "1", maxLength: 1, keyboard: Keyboard.Numeric);
-            if (e_valik=="1")
+            if (e_valik == "1")
             {
                 esi = true;
             }
