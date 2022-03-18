@@ -18,7 +18,7 @@ namespace Tik
         {
             grid4X1 = new Grid
             {
-                BackgroundColor = Color.Blue,
+                BackgroundColor = Color.LightBlue,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 RowDefinitions =
