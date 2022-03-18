@@ -54,7 +54,7 @@ namespace Tik
             grid4X1.Children.Add(tee_btn, 0, 3);
             Content = grid4X1;
         }
-        int o=5;
+        int o=0;
         //00 10 20
         //01 11 21
         //02 12 22
@@ -91,9 +91,9 @@ namespace Tik
             {
                 o = 2;
             }
-            else
+            else if (T[0, 0] != 0 && T[0, 1] != 0 && T[0, 2] != 0 && T[1, 0] != 0 && T[1, 1] != 0 && T[1, 2] != 0 && T[2, 0] != 0 && T[2, 1] != 0 && T[2, 2] != 0)
             {
-                o = 0;
+                o = 3;
             }
             return o;
         }
@@ -109,10 +109,10 @@ namespace Tik
             {
                 DisplayAlert("Võit", "Teine on voitja", "Ok");
             }
-            //else
-            //{
-            //   DisplayAlert("Võit", "Viik", "Ok");
-            //}
+            else if (o == 3)
+            {
+               DisplayAlert("Võit", "Viik", "Ok");
+            }
         }
 
         private async void Kes_btn_Clicked(object sender, EventArgs e)
@@ -177,6 +177,7 @@ namespace Tik
                     tap.Tapped += Tap_Tapped;
                     a.GestureRecognizers.Add(tap);
                     T[j, i] = 0;
+                    o = 0;
                 }
             }
             grid4X1.Children.Add(grid3X3, 0, 0);
