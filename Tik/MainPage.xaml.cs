@@ -14,6 +14,7 @@ namespace Tik
         Grid grid4X1, grid3X3;
         Image a;
         bool esi=false;
+        int[,] T = new int[3, 3];
         public MainPage()
         {
             grid4X1 = new Grid
@@ -52,6 +53,49 @@ namespace Tik
             grid4X1.Children.Add(kes_btn, 0, 2);
             grid4X1.Children.Add(tee_btn, 0, 3);
             Content = grid4X1;
+        }
+        int o=0;
+        //00 10 20
+        //01 11 21
+        //02 12 22
+
+        //00 01 02
+        //10 11 12
+        //20 21 22
+
+        //00 11 22
+        //02 11 20
+        public int Kontroll()
+        {
+            if (T[0, 0] == 1 && T[1, 0] == 1 && T[2, 0] == 1 || T[0, 1] == 1 && T[1, 1] == 1 && T[2, 1] == 1 || T[0, 2] == 1 && T[1, 2] == 1 && T[2, 2] == 1)
+            {
+                o = 1;
+            }
+            else if (T[0, 0] == 1 && T[0, 1] == 1 && T[0, 2] == 1 || T[1, 0] == 1 && T[1, 1] == 1 && T[1, 2] == 1 || T[2, 0] == 1 && T[2, 1] == 1 && T[2, 2] == 1)
+            {
+                o = 1;
+            }
+            else if (T[0, 0] == 1 && T[1, 1] == 1 && T[2, 2] == 1 || T[0, 2] == 1 && T[1, 1] == 1 && T[2, 0] == 1)
+            {
+                o = 1;
+            }
+            else if (T[0, 0] == 2 && T[1, 0] == 2 && T[2, 0] == 2 || T[0, 1] == 2 && T[1, 1] == 2 && T[2, 1] == 2 || T[0, 2] == 2 && T[1, 2] == 2 && T[2, 2] == 2)
+            {
+                o = 2;
+            }
+            else if (T[0, 0] == 2 && T[0, 1] == 2 && T[0, 2] == 2 || T[1, 0] == 2 && T[1, 1] == 2 && T[1, 2] == 2 || T[2, 0] == 2 && T[2, 1] == 2 && T[2, 2] == 2)
+            {
+                o = 2;
+            }
+            else if (T[0, 0] == 2 && T[1, 1] == 2 && T[2, 2] == 2 || T[0, 2] == 2 && T[1, 1] == 2 && T[2, 0] == 2)
+            {
+                o = 2;
+            }
+            else
+            {
+                o = 0;
+            }
+            return o;
         }
 
         private async void Kes_btn_Clicked(object sender, EventArgs e)
