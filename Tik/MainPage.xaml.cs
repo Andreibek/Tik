@@ -54,7 +54,7 @@ namespace Tik
             grid4X1.Children.Add(tee_btn, 0, 3);
             Content = grid4X1;
         }
-        int o=0;
+        int o=3;
         //00 10 20
         //01 11 21
         //02 12 22
@@ -98,6 +98,23 @@ namespace Tik
             return o;
         }
 
+        public void Lopp()
+        {
+            o = Kontroll();
+            if (o == 1)
+            {
+                DisplayAlert("Võit", "Esimine on voitja", "Ok");
+            }
+            else if (o == 2)
+            {
+                DisplayAlert("Võit", "Teine on voitja", "Ok");
+            }
+            //else
+            //{
+            //   DisplayAlert("Võit", "Viik", "Ok");
+            //}
+        }
+
         private async void Kes_btn_Clicked(object sender, EventArgs e)
         {
             string e_valik = await DisplayPromptAsync("Kes on esimene", "Tee oma valik 1-cross,2-round", initialValue: "1", maxLength: 1, keyboard: Keyboard.Numeric);
@@ -139,16 +156,16 @@ namespace Tik
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 RowDefinitions =
                 {
-                    new RowDefinition{Height=new GridLength(1,GridUnitType.Star)},
-                    new RowDefinition{Height=new GridLength(1,GridUnitType.Star)},
-                    new RowDefinition{Height=new GridLength(1,GridUnitType.Star)}
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) }
                 },
                 ColumnDefinitions =
                 {
-                    new ColumnDefinition{Width=new GridLength(1,GridUnitType.Star)},
-                    new ColumnDefinition{Width=new GridLength(1,GridUnitType.Star)},
-                    new ColumnDefinition{Width=new GridLength(1,GridUnitType.Star)}
-                }
+                    new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+                    new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+                    new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
+                },
             };
             for(int i = 0; i < 3; i++)
             {
@@ -159,6 +176,7 @@ namespace Tik
                     TapGestureRecognizer tap = new TapGestureRecognizer();
                     tap.Tapped += Tap_Tapped;
                     a.GestureRecognizers.Add(tap);
+                    T[j, i] = 0;
                 }
             }
             grid4X1.Children.Add(grid3X3, 0, 0);
@@ -173,12 +191,15 @@ namespace Tik
             {
                 a.Source = "cross.png";
                 esi = false;
+                T[r, c] = 1;
             }
             else
             {
                 a.Source = "round.png";
                 esi = true;
+                T[r, c] = 2;
             }
+            Lopp();
             
         }
     }
