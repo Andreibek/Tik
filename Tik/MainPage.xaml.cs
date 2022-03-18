@@ -54,7 +54,7 @@ namespace Tik
             grid4X1.Children.Add(tee_btn, 0, 3);
             Content = grid4X1;
         }
-        int o=3;
+        int o=5;
         //00 10 20
         //01 11 21
         //02 12 22
