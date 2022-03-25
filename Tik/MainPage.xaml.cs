@@ -151,12 +151,13 @@ namespace Tik
 
         public IList<string> Mp3List => new[]
         {
-            "https://soundcloud.com/joshmancell/crash-bandicoot-2-sewer-or?in=joshmancell/sets/music-for-video-games-crash&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+            "https://soundcloud.com/joshmancell/sets/music-for-video-games-crash?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
         };
 
         //public Media_Page()
         //{
         //    InitializeComponent();
+//
         //}
         private async void Play_btn_Clicked(object sender, EventArgs e)
         {
