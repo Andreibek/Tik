@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaManager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Tik
     public partial class MainPage : ContentPage
     {
         Button uus_btn, kes_btn, tee_btn;
+        ImageButton play_btn;
         Grid grid4X1, grid3X3;
         Image a;
         bool esi=false;
@@ -48,12 +50,18 @@ namespace Tik
             {
                 Text = "Teema"
             };
-            
+            play_btn = new ImageButton
+            {
+                Source = "play.png"
+            };
+            play_btn.Clicked += Play_btn_Clicked;
             grid4X1.Children.Add(uus_btn, 0, 1);
             grid4X1.Children.Add(kes_btn, 0, 2);
-            grid4X1.Children.Add(tee_btn, 0, 3);
+            grid4X1.Children.Add(play_btn, 0, 3);
             Content = grid4X1;
         }
+
+
         int o=0;
         //00 10 20
         //01 11 21
@@ -140,6 +148,21 @@ namespace Tik
                 esi = false;
             }
         }
+
+        public IList<string> Mp3List => new[]
+        {
+            "https://soundcloud.com/joshmancell/crash-bandicoot-2-sewer-or?in=joshmancell/sets/music-for-video-games-crash&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+        };
+
+        //public Media_Page()
+        //{
+        //    InitializeComponent();
+        //}
+        private async void Play_btn_Clicked(object sender, EventArgs e)
+        {
+            await CrossMediaManager.Current.Play(Mp3List);
+        }
+
 
         private void Uus_btn_Clicked(object sender, EventArgs e)
         {
