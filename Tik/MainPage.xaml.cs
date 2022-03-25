@@ -171,7 +171,7 @@ namespace Tik
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    a = new Image { Source = "white2.png" };
+                    a = new Image { Source = "white.png" };
                     grid3X3.Children.Add(a, j, i);
                     TapGestureRecognizer tap = new TapGestureRecognizer();
                     tap.Tapped += Tap_Tapped;

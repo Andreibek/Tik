@@ -8391,7 +8391,7 @@ namespace Tik.Droid
 			public const int tooltip_frame_light = 2131165303;
 			
 			// aapt resource value: 0x7F070078
-			public const int white2 = 2131165304;
+			public const int white = 2131165304;
 			
 			static Drawable()
 			{
